@@ -1,0 +1,15 @@
+# Arquivos de ambiente
+.env
+
+# Dependências do Node.js
+node_modules/
+
+# Arquivos gerados pelo TypeScript
+dist/
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários do Windows
+Thumbs.db
+.DS_Store
