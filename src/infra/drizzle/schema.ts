@@ -1,12 +1,16 @@
 // src/infra/drizzle/schema.ts
-import { pgTable, varchar, uuid, numeric, pgEnum, foreignKey } from 'drizzle-orm/pg-core';
+import { pgTable, varchar, uuid, numeric, pgEnum, unique } from 'drizzle-orm/pg-core';
 
 export const tipoTreinoEnum = pgEnum('tipo_treino', ['musculacao', 'cardio', 'ambos']);
 
 export const usuarios = pgTable('usuarios', {
   id: uuid('id').primaryKey(),
   nome: varchar('nome', { length: 100 }).notNull(),
-});
+  email: varchar('email', { length: 255 }).notNull().unique(),
+  senha: varchar('senha', { length: 255 }).notNull(), // Tamanho suficiente para hash bcrypt
+}, (table) => ({
+  emailIdx: unique('email_idx').on(table.email),
+}));
 
 export const treinos = pgTable('treinos', {
   id: uuid('id').primaryKey(),

@@ -1,4 +1,3 @@
-// src/routes/treinoRoutes.ts
 import { Router, Request, Response } from 'express';
 import { CriarTreinoUseCase } from '../application/use-cases/CriarTreinoUseCase/index.js';
 import { TreinoRepositoryDrizzle } from '../infra/drizzle/treinoRepositoryDrizzle.js';
